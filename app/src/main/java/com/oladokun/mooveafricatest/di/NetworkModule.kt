@@ -18,7 +18,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-
+    /*
+        HttpLoggingInterceptor for intercepting and logging a detailed report and status of the endpoint called
+     */
     @Provides
     @Singleton
     fun provideLogger(): HttpLoggingInterceptor {
