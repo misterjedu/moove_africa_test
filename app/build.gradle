@@ -44,6 +44,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.fragment:fragment-ktx:1.3.6'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
@@ -88,7 +89,7 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
 
     // Core
-    implementation "androidx.core:core-ktx:$version_core"
+//    implementation "androidx.core:core-ktx:$version_core"
 
     // Material Design
     implementation "com.google.android.material:material:$version_material"
@@ -113,10 +114,12 @@ dependencies {
 
     //Dagger-hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-//    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_life_cycle_version"
     kapt "androidx.hilt:hilt-compiler:$hilt_compiler_version"
 
 
+}
+
+kapt {
+    correctErrorTypes true
 }

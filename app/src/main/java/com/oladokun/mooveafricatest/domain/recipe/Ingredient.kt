@@ -1,7 +1,7 @@
 package com.oladokun.mooveafricatest.domain.recipe
 
 data class Ingredient(
-    val ingredient: String,
-    val measure: String,
-    val quantity: Int
+    val ingredient: String? = null,
+    val measure: String? = null,
+    val quantity: Float? = 0F
 )

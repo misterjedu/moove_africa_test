@@ -2,6 +2,8 @@ package com.oladokun.mooveafricatest.di
 
 import com.oladokun.mooveafricatest.BASE_URL
 import com.oladokun.mooveafricatest.domain.ApiService
+import com.oladokun.mooveafricatest.repository.RecipeRepository
+import com.oladokun.mooveafricatest.repository.RecipeRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -59,6 +61,11 @@ object NetworkModule {
             .client(client)
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun provideRepository(apiService: ApiService): RecipeRepository =
+        RecipeRepositoryImpl(apiService)
 
     @Provides
     @Singleton
