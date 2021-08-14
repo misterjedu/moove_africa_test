@@ -2,4 +2,6 @@
     <string name="app_name">MooveAfricaTest</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="what_to_make_today">What food do you want to maketoday?</string>
+
 </resources>

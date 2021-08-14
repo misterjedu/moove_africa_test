@@ -1,6 +1,6 @@
 package com.oladokun.mooveafricatest.di
 
-import com.oladokun.mooveafricatest.BASE_URL
+import com.oladokun.mooveafricatest.utils.BASE_URL
 import com.oladokun.mooveafricatest.domain.ApiService
 import com.oladokun.mooveafricatest.repository.RecipeRepository
 import com.oladokun.mooveafricatest.repository.RecipeRepositoryImpl

@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.oladokun.mooveafricatest.databinding.FragmentRecipeHomeBinding
+import com.oladokun.mooveafricatest.shared.RecipeListAdapter
 import com.oladokun.mooveafricatest.viewmodels.RecipeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,7 +21,9 @@ class RecipeHomeFragment : Fragment() {
 
     private var _binding: FragmentRecipeHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var button: Button
+    private lateinit var recipeRecyclerView: RecyclerView
+    private lateinit var recipeRecyclerAdapter: RecipeListAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,8 +32,8 @@ class RecipeHomeFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentRecipeHomeBinding.inflate(inflater, container, false)
 
-
-        button = binding.recipeHomeButton
+        recipeRecyclerView = binding.recipeRecyclerView
+        recipeRecyclerAdapter = RecipeListAdapter()
         return binding.root
     }
 
@@ -37,14 +41,13 @@ class RecipeHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button.setOnClickListener {
-//            findNavController().navigate(R.id.recipeDetailFragment)
-
-            recipeViewModel.getRecipes()
+        recipeRecyclerView.apply {
+            adapter = recipeRecyclerAdapter
+            setHasFixedSize(true)
         }
 
         recipeViewModel.recipes.observe(viewLifecycleOwner, {
-            println(it.toList())
+            recipeRecyclerAdapter.submitList(it)
         })
     }
 
