@@ -1,4 +1,4 @@
-package com.oladokun.mooveafricatest.shared
+package com.oladokun.mooveafricatest.ui.recipehome.recipe_home_recycler
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -17,13 +17,13 @@ class RecipeViewHolder(private val binding: ItemRecipeBinding) :
             var imageView = 0
 
             when (recipe.id) {
-                0 -> {
+                1 -> {
                     imageView = R.drawable.nutela
                 }
-                1 -> {
+                2 -> {
                     imageView = R.drawable.brownies
                 }
-                2 -> {
+                3 -> {
                     imageView = R.drawable.yellow_cake
                 }
 

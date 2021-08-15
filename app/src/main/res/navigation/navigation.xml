@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/recipeHomeFragment"
-        android:name="com.oladokun.mooveafricatest.ui.RecipeHomeFragment"
+        android:name="com.oladokun.mooveafricatest.ui.recipehome.RecipeHomeFragment"
         android:label="fragment_recipe_home"
         tools:layout="@layout/fragment_recipe_home" />
     <fragment
         android:id="@+id/recipeDetailFragment"
-        android:name="com.oladokun.mooveafricatest.ui.RecipeDetailFragment"
+        android:name="com.oladokun.mooveafricatest.ui.recipe_details.RecipeDetailFragment"
         android:label="fragment_recipe_detail"
         tools:layout="@layout/fragment_recipe_detail" />
 </navigation>

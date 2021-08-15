@@ -1,26 +1,24 @@
-package com.oladokun.mooveafricatest.ui
+package com.oladokun.mooveafricatest.ui.recipe_details
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.oladokun.mooveafricatest.R
-import com.oladokun.mooveafricatest.databinding.FragmentRecipeDetailBinding
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.fragment.app.Fragment
+import com.oladokun.mooveafricatest.databinding.FragmentRecipeIngredientBinding
 
-@AndroidEntryPoint
-class RecipeDetailFragment : Fragment() {
+class RecipeIngredientFragment : Fragment() {
 
-    private var _binding: FragmentRecipeDetailBinding? = null
+    private var _binding: FragmentRecipeIngredientBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
-        _binding = FragmentRecipeDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentRecipeIngredientBinding.inflate(inflater, container, false)
 
         return binding.root
     }

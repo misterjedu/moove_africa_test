@@ -1,4 +1,4 @@
-package com.oladokun.mooveafricatest.shared
+package com.oladokun.mooveafricatest.ui.recipehome.recipe_home_recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

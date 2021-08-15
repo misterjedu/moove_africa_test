@@ -1,4 +1,4 @@
-package com.oladokun.mooveafricatest.shared
+package com.oladokun.mooveafricatest.ui.recipehome.recipe_home_recycler
 
 import androidx.recyclerview.widget.DiffUtil
 import com.oladokun.mooveafricatest.domain.recipe.RecipeDTOItem
