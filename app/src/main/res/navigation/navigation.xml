@@ -9,10 +9,18 @@
         android:id="@+id/recipeHomeFragment"
         android:name="com.oladokun.mooveafricatest.ui.recipehome.RecipeHomeFragment"
         android:label="fragment_recipe_home"
-        tools:layout="@layout/fragment_recipe_home" />
+        tools:layout="@layout/fragment_recipe_home">
+        <action
+            android:id="@+id/action_recipeHomeFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recipeDetailFragment"
         android:name="com.oladokun.mooveafricatest.ui.recipe_details.RecipeDetailFragment"
         android:label="fragment_recipe_detail"
-        tools:layout="@layout/fragment_recipe_detail" />
+        tools:layout="@layout/fragment_recipe_detail">
+        <argument
+            android:name="recipeItem"
+            app:argType="com.oladokun.mooveafricatest.domain.recipe.RecipeDTOItem" />
+    </fragment>
 </navigation>
