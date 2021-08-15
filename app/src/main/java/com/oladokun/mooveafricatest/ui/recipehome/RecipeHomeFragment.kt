@@ -4,16 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.oladokun.mooveafricatest.databinding.FragmentRecipeHomeBinding
+import com.oladokun.mooveafricatest.domain.GenericApiResponse
 import com.oladokun.mooveafricatest.domain.recipe.RecipeDTOItem
 import com.oladokun.mooveafricatest.ui.recipehome.recipe_home_recycler.RecipeListAdapter
 import com.oladokun.mooveafricatest.utils.fragmentSlideInLeftAnimation
+import com.oladokun.mooveafricatest.utils.hideVisibility
+import com.oladokun.mooveafricatest.utils.showVisibility
 import com.oladokun.mooveafricatest.viewmodels.RecipeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import pl.droidsonroids.gif.GifImageView
 
 @AndroidEntryPoint
 class RecipeHomeFragment : Fragment() {
@@ -26,6 +31,8 @@ class RecipeHomeFragment : Fragment() {
     private lateinit var recipeRecyclerView: RecyclerView
     private lateinit var recipeRecyclerAdapter: RecipeListAdapter
     private var recipeList: MutableList<RecipeDTOItem> = mutableListOf()
+    private lateinit var loadingScreen: GifImageView
+    private lateinit var offlineScreen: LinearLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +41,9 @@ class RecipeHomeFragment : Fragment() {
 
         // Inflate the layout for this fragment
         _binding = FragmentRecipeHomeBinding.inflate(inflater, container, false)
+        recipeRecyclerView = binding.recipeRecyclerView
+        loadingScreen = binding.recipeImageHomeLoading
+        offlineScreen = binding.recipeImageHomeOffline
 
         return binding.root
     }
@@ -42,7 +52,6 @@ class RecipeHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recipeRecyclerView = binding.recipeRecyclerView
 
         recipeRecyclerAdapter = RecipeListAdapter { adapterPostion ->
 
@@ -62,10 +71,36 @@ class RecipeHomeFragment : Fragment() {
         }
 
         recipeViewModel.recipes.observe(viewLifecycleOwner, {
-            recipeList = it
-            recipeRecyclerAdapter.submitList(it)
+
+            when (it) {
+                is GenericApiResponse.Loading -> {
+                    swapVisibleScreen(loadingScreen)
+                }
+                is GenericApiResponse.Error -> {
+                    swapVisibleScreen(offlineScreen)
+                }
+                is GenericApiResponse.Success -> {
+                    recipeList = it.recipes
+                    recipeRecyclerAdapter.submitList(it.recipes)
+                    swapVisibleScreen(recipeRecyclerView)
+                }
+            }
+
         })
+
+        binding.fragmentRecipeHomeRefreshButton.setOnClickListener {
+            swapVisibleScreen(loadingScreen)
+            recipeViewModel.getRecipes()
+        }
     }
 
+
+    private fun swapVisibleScreen(screenToShow: View) {
+        recipeRecyclerView.hideVisibility()
+        loadingScreen.hideVisibility()
+        offlineScreen.hideVisibility()
+        screenToShow.showVisibility()
+
+    }
 
 }

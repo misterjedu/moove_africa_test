@@ -11,15 +11,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
         tools:context=".ui.recipehome.RecipeHomeFragment">
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipe_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="2"
             tools:listitem="@layout/item_recipe" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/recipe_image_home_loading"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/loading_buffering" />
+
+        <LinearLayout
+            android:id="@+id/recipe_image_home_offline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/offlinee" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:text="Seems you are offline"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/fragment_recipe_home_refreshButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:padding="10dp"
+                android:text="Refresh" />
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 </layout>
