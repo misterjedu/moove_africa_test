@@ -4,6 +4,9 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 
+/**
+ * Data class parcelized with @Parcelize to be able to pass it through bundles
+ */
 @Parcelize
 data class RecipeDTOItem(
     val id: Int,

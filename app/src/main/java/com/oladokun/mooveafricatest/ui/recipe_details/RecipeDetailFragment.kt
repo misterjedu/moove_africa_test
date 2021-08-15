@@ -16,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class RecipeDetailFragment : Fragment() {
+
     private lateinit var recipeIngredientViewPager: ViewPager2
     private lateinit var recipeIngredientTabLayout: TabLayout
     private lateinit var recipeIngredientAdapter: GenericViewPagerAdapter
@@ -47,6 +48,7 @@ class RecipeDetailFragment : Fragment() {
 
         binding.fragmentRecipeServingsText.text = recipeItem.servings.toString()
 
+        //Pass in  Recipe Ingredient and Steps into the ViewPager adapter
         val fragmentList =
             listOf(
                 RecipeIngredientFragment.newInstance(recipeItem),

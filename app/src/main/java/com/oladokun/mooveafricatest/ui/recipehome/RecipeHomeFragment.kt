@@ -52,10 +52,13 @@ class RecipeHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
+            Recycler Adapter click listener. Onclick of an recycler item, the position is passed
+            to the callback lambda and navigate the recipe detail fragment
+         */
+        recipeRecyclerAdapter = RecipeListAdapter { adapterPosition ->
 
-        recipeRecyclerAdapter = RecipeListAdapter { adapterPostion ->
-
-            val selectedRecipe = recipeList[adapterPostion]
+            val selectedRecipe = recipeList[adapterPosition]
 
             val action =
                 RecipeHomeFragmentDirections.actionRecipeHomeFragmentToRecipeDetailFragment(
@@ -70,8 +73,9 @@ class RecipeHomeFragment : Fragment() {
             setHasFixedSize(true)
         }
 
-        recipeViewModel.recipes.observe(viewLifecycleOwner, {
 
+        //Observe recipes from recipe view model live data
+        recipeViewModel.recipes.observe(viewLifecycleOwner, {
             when (it) {
                 is GenericApiResponse.Loading -> {
                     swapVisibleScreen(loadingScreen)
@@ -94,13 +98,11 @@ class RecipeHomeFragment : Fragment() {
         }
     }
 
-
     private fun swapVisibleScreen(screenToShow: View) {
         recipeRecyclerView.hideVisibility()
         loadingScreen.hideVisibility()
         offlineScreen.hideVisibility()
         screenToShow.showVisibility()
-
     }
 
 }

@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import com.oladokun.mooveafricatest.R
 
+/**
+ * Extension function to help with fragment transition animation
+ */
 fun Fragment.fragmentSlideInLeftAnimation(): NavOptions.Builder {
     val navBuilder: NavOptions.Builder = NavOptions.Builder()
     navBuilder.setEnterAnim(R.anim.slide_in_right).setExitAnim(R.anim.slide_out_left)
@@ -13,6 +16,9 @@ fun Fragment.fragmentSlideInLeftAnimation(): NavOptions.Builder {
 }
 
 
+/**
+ * Extension functions to help with view visibility
+ */
 fun View.hideVisibility() {
     this.visibility = View.GONE
 }

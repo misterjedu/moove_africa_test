@@ -9,5 +9,7 @@
     <string name="measurement">Measurement :</string>
     <string name="step">Step</string>
     <string name="description">Description</string>
+    <string name="refresh">Refresh</string>
+    <string name="seems_you_are_offline">Seems you are offline</string>
 
 </resources>

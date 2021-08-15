@@ -24,6 +24,8 @@ class RecipeIngredientFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //The Recipe Item is retrieved here from the bundle
         arguments?.let {
             recipeItem = it.getParcelable(RECIPE_ITEM)
         }
@@ -53,6 +55,7 @@ class RecipeIngredientFragment : Fragment() {
 
     }
 
+    //The Recipe Item is passed to the fragment as bundle when initialized.
     companion object {
         @JvmStatic
         fun newInstance(recipeDTOItem: RecipeDTOItem) =

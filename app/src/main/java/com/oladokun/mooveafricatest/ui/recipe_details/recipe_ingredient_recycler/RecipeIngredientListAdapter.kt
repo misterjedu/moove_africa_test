@@ -8,6 +8,7 @@ import com.oladokun.mooveafricatest.domain.recipe.Ingredient
 
 class RecipeIngredientListAdapter :
     ListAdapter<Ingredient, RecipeIngredientViewHolder>(RecipeIngredientDiffUtil()) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeIngredientViewHolder {
         val binding =
             ItemRecipeIngredientsBinding.inflate(LayoutInflater.from(parent.context), parent, false)

@@ -16,12 +16,15 @@ class RecipeStepsFragment : Fragment() {
 
     private var _binding: FragmentRecipeStepsBinding? = null
     private val binding get() = _binding!!
+
     private var recipeItem: RecipeDTOItem? = null
     private lateinit var recipeStepRecyclerView: RecyclerView
     private lateinit var recipeStepLisAdapter: RecipeStepsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //The Recipe Item passed in the new instance bundle is retrieved here
         arguments?.let {
             recipeItem = it.getParcelable(RECIPE_ITEM)
         }
@@ -48,7 +51,7 @@ class RecipeStepsFragment : Fragment() {
         }
     }
 
-
+    //The Recipe Item is passed to the fragment as bundle when initialized.
     companion object {
         @JvmStatic
         fun newInstance(recipeDTOItem: RecipeDTOItem) =

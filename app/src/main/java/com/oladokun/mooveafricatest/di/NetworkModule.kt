@@ -1,9 +1,9 @@
 package com.oladokun.mooveafricatest.di
 
-import com.oladokun.mooveafricatest.utils.BASE_URL
 import com.oladokun.mooveafricatest.domain.ApiService
 import com.oladokun.mooveafricatest.repository.RecipeRepository
 import com.oladokun.mooveafricatest.repository.RecipeRepositoryImpl
+import com.oladokun.mooveafricatest.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,19 +16,24 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+
+/**
+ * Network hilt module
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
     /*
-        HttpLoggingInterceptor for intercepting and logging a detailed report and status of the endpoint called
+       HttpInterceptor, Retrofit, ApiService, and Repository are generated here
+       and provided throughout the application lifecycle
      */
+
     @Provides
     @Singleton
     fun provideLogger(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
-
 
     @Provides
     @Singleton

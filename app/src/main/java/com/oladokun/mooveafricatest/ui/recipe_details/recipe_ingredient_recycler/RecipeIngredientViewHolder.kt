@@ -10,11 +10,9 @@ class RecipeIngredientViewHolder(private val binding: ItemRecipeIngredientsBindi
     fun bind(ingredient: Ingredient) {
 
         binding.apply {
-
             itemRecipeStepsIngredientValue.text = ingredient.ingredient
             itemRecipeStepsMeasurementValue.text = ingredient.measure
             itemRecipeStepsQuantityValue.text = ingredient.quantity.toString()
-
         }
 
     }
