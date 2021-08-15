@@ -50,7 +50,7 @@ class RecipeDetailFragment : Fragment() {
         val fragmentList =
             listOf(
                 RecipeIngredientFragment.newInstance(recipeItem),
-                RecipeStepsFragment()
+                RecipeStepsFragment.newInstance(recipeItem)
             )
 
         recipeIngredientAdapter = GenericViewPagerAdapter(

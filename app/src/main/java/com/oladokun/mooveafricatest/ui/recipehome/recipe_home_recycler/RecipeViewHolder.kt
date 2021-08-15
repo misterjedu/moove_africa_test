@@ -20,8 +20,7 @@ class RecipeViewHolder(private val binding: ItemRecipeBinding) :
                 clickListener(adapterPosition)
             }
 
-
-            var imageView = 0
+            val imageView: Int
 
             when (recipe.id) {
                 1 -> {
@@ -36,9 +35,7 @@ class RecipeViewHolder(private val binding: ItemRecipeBinding) :
 
                 else -> {
                     imageView = R.drawable.brownies
-
                 }
-
             }
 
             Glide.with(itemView)
