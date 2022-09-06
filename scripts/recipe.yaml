@@ -1,0 +1,6 @@
+appId: com.oladokun.mooveafricatest
+---
+- launchApp
+- tapOn: "Brownies"
+- scroll
+
